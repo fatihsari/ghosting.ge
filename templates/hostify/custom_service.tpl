@@ -1,0 +1,1 @@
+{$LANG.ghosting.text.pro_service.desc}

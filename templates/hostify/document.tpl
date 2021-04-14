@@ -1,0 +1,1 @@
+{include file="$template/includes/documents/{$document_type}_{$language}.tpl"}

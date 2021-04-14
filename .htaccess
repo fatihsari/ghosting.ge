@@ -1,0 +1,71 @@
+
+### BEGIN - WHMCS managed rules - DO NOT EDIT BETWEEN WHMCS MARKERS ###
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# RewriteBase is set to "/" so rules do not need updating if the
+# installation directory is relocated.  It is imperative that
+# there is also a RewriteCond rule later that can effectively get
+# the actual value by comparison against the request URI.
+# 
+# If there are _any_ other RewriteBase directives in this file,
+# the last entry will take precedence!
+RewriteBase /
+
+RewriteRule ^ka/?$ index.php?language=georgian [QSA,L]
+RewriteRule ^ka/ვებ-ჰოსტინგი/?$ custom_product.php?pid=10&language=georgian [QSA,L]
+RewriteRule ^ka/vps-სერვერი/?$ custom_product.php?pid=11&language=georgian [QSA,L]
+RewriteRule ^ka/მონაცემთა-ბაზა/?$ custom_product.php?pid=12&language=georgian [QSA,L]
+RewriteRule ^ka/პროფესიონალური-ჰოსტინგი/?$ custom_service.php?language=georgian [QSA,L]
+RewriteRule ^ka/კომპანიის-შესახებ/?$ about_us.php?language=georgian [QSA,L]
+RewriteRule ^ka/წესები-და-პირობები/?$ document.php?terms&language=georgian [QSA,L]
+RewriteRule ^ka/კონფიდენციალურობის-პოლიტიკა/?$ document.php?policy&language=georgian [QSA,L]
+
+RewriteRule ^en/?$ index.php?language=english [QSA,L]
+RewriteRule ^en/web-hosting/?$ custom_product.php?pid=10&language=english [QSA,L]
+RewriteRule ^en/vps-server/?$ custom_product.php?pid=11&language=english [QSA,L]
+RewriteRule ^en/remote-database/?$ custom_product.php?pid=12&language=english [QSA,L]
+RewriteRule ^en/profesional-hosting/?$ custom_service.php?language=english [QSA,L]
+RewriteRule ^en/about-us/?$ about_us.php?language=english [QSA,L]
+RewriteRule ^en/terms-and-conditions/?$ document.php?terms&language=english [QSA,L]
+RewriteRule ^en/privacy-policy/?$ document.php?policy&language=english [QSA,L]
+
+RewriteRule ^ru/?$ index.php?language=russian [QSA,L]
+RewriteRule ^ru/веб-хостинг/?$ custom_product.php?pid=10&language=russian [QSA,L]
+RewriteRule ^ru/vps-сервер/?$ custom_product.php?pid=11&language=russian [QSA,L]
+RewriteRule ^ru/удаленная-база-данных/?$ custom_product.php?pid=12&language=russian [QSA,L]
+RewriteRule ^ru/профессиональный-хостинг/?$ custom_service.php?language=russian [QSA,L]
+RewriteRule ^ru/о-нас/?$ about_us.php?language=russian [QSA,L]
+RewriteRule ^ru/условия-и-положения/?$ document.php?terms&language=russian [QSA,L]
+RewriteRule ^ru/политика-конфиденциальности/?$ document.php?policy&language=russian [QSA,L]
+
+RewriteRule ^ka/დახმარება/?$ knowledgebase.php?language=georgian [QSA,L]
+RewriteRule ^ka/დახმარება/[^/]+/c(\d+)/?$ knowledgebase.php?action=displaycat&catid=$1&language=georgian [QSA,L]
+RewriteRule ^ka/დახმარება/[^/]+/a(\d+)/?$ knowledgebase.php?action=displayarticle&id=$1&language=georgian [QSA,L]
+RewriteRule ^ka/დახმარება/(.*)/?$ knowledgebase.php?tag=$1&language=georgian [QSA,L]
+
+RewriteRule ^en/help/?$ knowledgebase.php?language=english [QSA,L]
+RewriteRule ^en/help/[^/]+/c(\d+)/?$ knowledgebase.php?action=displaycat&catid=$1&language=english [QSA,L]
+RewriteRule ^en/help/[^/]+/a(\d+)/?$ knowledgebase.php?action=displayarticle&id=$1&language=english [QSA,L]
+RewriteRule ^en/help/(.*)/?$ knowledgebase.php?tag=$1&language=english [QSA,L]
+
+RewriteRule ^ru/помощь/?$ knowledgebase.php?language=russian [QSA,L]
+RewriteRule ^ru/помощь/[^/]+/c(\d+)/?$ knowledgebase.php?action=displaycat&catid=$1&language=russian [QSA,L]
+RewriteRule ^ru/помощь/[^/]+/a(\d+)/?$ knowledgebase.php?action=displayarticle&id=$1&language=russian [QSA,L]
+RewriteRule ^ru/помощь/(.*)/?$ knowledgebase.php?tag=$1&language=russian [QSA,L]
+
+
+# Redirect directories to an address with slash
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+[^/])$  $1/ [R]
+# Send all remaining (routable paths) through index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Determine and use the actual base
+RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
+RewriteRule ^.*$ %2index.php [QSA,L]
+</IfModule>
+<FilesMatch "\.(js|css|png|svg|woff|woff2)$">
+        Header set Cache-Control "max-age=31536000"
+</FilesMatch>
+### END - WHMCS managed rules - DO NOT EDIT BETWEEN WHMCS MARKERS ###

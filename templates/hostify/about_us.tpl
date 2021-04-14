@@ -1,0 +1,1 @@
+{$LANG.ghosting.text.about_us.desc|replace:'[seo_web_hosting_url]':$seo_web_hosting_url|replace:'[seo_vps_servers_url]':$seo_vps_servers_url|replace:'[seo_databases_url]':$seo_databases_url|replace:'[seo_profesional_service_url]':$seo_profesional_service_url}

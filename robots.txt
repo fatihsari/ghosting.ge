@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /*?*
+Disallow: /*.php*
+Allow: /*?v=*
+Sitemap: https://ghosting.ge/sitemap.xml
